@@ -5,11 +5,11 @@ public class Bullet2D : MonoBehaviour
     public bool isEnabled = true;
     public bool shouldDestroyOnStop = false;
     public bool shouldSetAngle = false;
-    public float destroyTime = 0.0f; // zero means don't destroy, greater than zero means destroy after that many seconds
-    public float initialSpeed = 0.0f;
+    public float destroyTime = 0.0f; // <= zero means don't destroy, greater than zero means destroy after that many seconds
+    public float initialSpeed = 0.0f; // units per second
     public float angleOfMotion = 0.0f; // degrees
     public float acceleration = 0.0f;
-    private float curSpeed = 0.0f;
+    private float curSpeed = 0.0f; // units per second
 
     void Start()
     {

@@ -5,8 +5,8 @@ public class Orbit2D : MonoBehaviour
     public bool isEnabled = true;
     public bool shouldResetAfterEnable = false;
     public bool shouldMatchRotation = false;
-    public bool shouldUseRefObject = false; // if this is true, but ref is null, then fall back to orbitPosition
-    public float initialAngle = 0.0f;
+    public bool shouldUseRefObject = false; // if this is true but ref is null, then fall back to orbitPosition
+    public float initialAngle = 0.0f; // degrees
     public float initialSpeed = 0.0f; // degrees per second
     public float acceleration = 0.0f;
     public float primaryRadius = 1.0f;
@@ -14,7 +14,7 @@ public class Orbit2D : MonoBehaviour
     public Vector2 orbitPosition = Vector2.zero;
     public GameObject refObject = null;
     private float curAngle = 0.0f; // degrees
-    private float curSpeed = 0.0f;
+    private float curSpeed = 0.0f; // degrees per second
 
     void Start()
     {
