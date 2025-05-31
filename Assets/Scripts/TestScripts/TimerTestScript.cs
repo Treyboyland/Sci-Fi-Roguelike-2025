@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectTimers))]
 public class TimerTestScript : MonoBehaviour
 {
     ObjectTimers timers;
