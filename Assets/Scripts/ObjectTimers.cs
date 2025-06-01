@@ -49,28 +49,45 @@ public class ObjectTimers : MonoBehaviour
     {
         if (dur > 0.0f)
         {
+            bool foundDuplicateTag = false;
             bool foundReusableSlot = false;
-            int reusableIndex = -1;
+            int targetIndex = -1;
 
+            // Check if there's a duplicate tag - if so then overwrite it
             for (int i = 0; i < timers.Count; i++)
             {
-                if (timers[i].state == 0 && timers[i].isComplete == false)
+                if (timers[i].tag == theTag)
                 {
-                    foundReusableSlot = true;
-                    reusableIndex = i;
+                    foundDuplicateTag = true;
+                    targetIndex = i;
                     break;
                 }
             }
 
-            if (foundReusableSlot)
+            if (!foundDuplicateTag)
             {
-                timers[reusableIndex].state = 1;
-                timers[reusableIndex].duration = dur;
-                timers[reusableIndex].curTime = dur;
-                timers[reusableIndex].curPercent = 0.0f;
-                timers[reusableIndex].tag = theTag;
-                timers[reusableIndex].type = theType;
-                timers[reusableIndex].shouldUseTimeScale = useTimeScale;
+                // Check if there's a reusable slot
+                for (int i = 0; i < timers.Count; i++)
+                {
+                    if (timers[i].state == 0 && timers[i].isComplete == false)
+                    {
+                        foundReusableSlot = true;
+                        targetIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Simply overwrite the index if it's duplicate or reusable - otherwise add a brand new one
+            if (foundDuplicateTag || foundReusableSlot)
+            {
+                timers[targetIndex].state = 1;
+                timers[targetIndex].duration = dur;
+                timers[targetIndex].curTime = dur;
+                timers[targetIndex].curPercent = 0.0f;
+                timers[targetIndex].tag = theTag;
+                timers[targetIndex].type = theType;
+                timers[targetIndex].shouldUseTimeScale = useTimeScale;
             }
             else
             {
