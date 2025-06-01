@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 [RequireComponent(typeof(ObjectTimers))]
 public class TimerTestScript : MonoBehaviour
@@ -14,6 +15,7 @@ public class TimerTestScript : MonoBehaviour
         timers.StartTimer(15.0f, "timeTillPause", GameTimer.TimerType.OneOff, true);
         timers.StartTimer(25.0f, "dropFire", GameTimer.TimerType.OneOff, true);
         timers.StartTimer(25.0f, "repeating", GameTimer.TimerType.Regular, true);
+        timers.StartTimer(5.0f, "timeTillShake", GameTimer.TimerType.OneOff, true);
     }
 
     // Update is called once per frame
@@ -35,6 +37,13 @@ public class TimerTestScript : MonoBehaviour
         {
             timers.ResetCompletedTimer("timeTillDupTag");
             timers.StartTimer(50.0f, "duplicateTag", GameTimer.TimerType.OneOff, true);
+        }
+
+        if (timers.IsTimerComplete("timeTillShake"))
+        {
+            timers.ResetCompletedTimer("timeTillShake");
+            GameObject.Find("CinemachineCamera").GetComponent<CamShakeController>().ShakeCamera(2.0f, 5.0f);
+            
         }
     }
 }
