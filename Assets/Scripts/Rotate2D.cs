@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Rotate2D : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Rotate2D : MonoBehaviour
     void Start()
     {
         curRotateSpeed = initialRotateSpeed;
+        gameObject.transform.DOMove(new Vector3(8, 4, 0), 3).SetEase(Ease.OutBounce);
+
     }
 
     void Update()
