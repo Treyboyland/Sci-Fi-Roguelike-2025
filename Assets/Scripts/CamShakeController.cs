@@ -47,17 +47,17 @@ public class CamShakeController : MonoBehaviour
     public void ShakeCamera(float duration, float intensity = 1.0f, bool decreaseIntensity = true, bool useTimeScale = true)
     {
         // duration is in seconds
-        // reasonable values for intensity are 0.1 to 10, a good value being ~1-2
-        canShake = true;
-        if (duration <= 0.0f)
+        // reasonable values for intensity are 0.1 to 10
+
+        if (duration > 0.0f && !canShake)
         {
-            duration = 1.0f;
+            canShake = true;
+            curDuration = duration;
+            curTime = duration;
+            curIntensity = intensity;
+            camNoise.AmplitudeGain = intensity;
+            shouldUseTimeScale = useTimeScale;
+            shouldDecreaseIntensity = decreaseIntensity;
         }
-        curDuration = duration;
-        curTime = duration;
-        curIntensity = intensity;
-        camNoise.AmplitudeGain = intensity;
-        shouldUseTimeScale = useTimeScale;
-        shouldDecreaseIntensity = decreaseIntensity;
     }
 }

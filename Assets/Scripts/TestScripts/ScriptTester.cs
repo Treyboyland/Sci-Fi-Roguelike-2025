@@ -2,12 +2,16 @@ using UnityEngine;
 using Unity.Cinemachine;
 
 [RequireComponent(typeof(ObjectTimers))]
-public class TimerTestScript : MonoBehaviour
+[RequireComponent(typeof(HitStopController))]
+public class ScriptTester : MonoBehaviour
 {
-    ObjectTimers timers;
+    ObjectTimers timers = null;
+    HitStopController hitStopper = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hitStopper = gameObject.GetComponent<HitStopController>();
+
         timers = gameObject.GetComponent<ObjectTimers>();
         timers.StartTimer(20.0f, "doSomething", GameTimer.TimerType.OneOff, true);
         timers.StartTimer(10.0f, "timeTillDupTag", GameTimer.TimerType.OneOff, true);
@@ -16,6 +20,7 @@ public class TimerTestScript : MonoBehaviour
         timers.StartTimer(25.0f, "dropFire", GameTimer.TimerType.OneOff, true);
         timers.StartTimer(25.0f, "repeating", GameTimer.TimerType.Regular, true);
         timers.StartTimer(5.0f, "timeTillShake", GameTimer.TimerType.OneOff, true);
+        timers.StartTimer(1.5f, "timeTillHitStop", GameTimer.TimerType.OneOff, true);
     }
 
     // Update is called once per frame
@@ -44,6 +49,12 @@ public class TimerTestScript : MonoBehaviour
             timers.ResetCompletedTimer("timeTillShake");
             GameObject.Find("CinemachineCamera").GetComponent<CamShakeController>().ShakeCamera(2.0f, 5.0f);
             
+        }
+
+        if (timers.IsTimerComplete("timeTillHitStop"))
+        {
+            timers.ResetCompletedTimer("timeTillHitStop");
+            hitStopper.DoHitStop(1.0f);
         }
     }
 }
