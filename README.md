@@ -86,7 +86,23 @@ A sci-fi twin-stick shooter bullet hell with roguelike progression. You play as 
 		18. Cheaper shop items
 		
 ### Obstacles & Traps
+	1. Spikes that periodically appear from ground
+	2. Spikes on the outer walls of arena
+	3. Turrets that shoot bullets at you
+	4. Not all of these will appear every round, but can be used as tools when designing
 ### Enemies
+	1. Enemy types: shooters, dashers, exploders
+	2. Shooters will stand back and shoot bullets at you and occasionally move to a new location
+		1. Will have a lot of the same stats as guns do
+		2. But won't worry about ammo/reloading nor piercing
+		3. Can probably re-use functionality between guns and enemies
+	3. Dashers will run at you very quickly
+	4. Exploders will blow up on death
+	5. Enemy stats
+		1. Max hp/current hp
+		2. Max move speed
+		3. Damage reduction
+		4. Slow % on hit (player will only be slowed for a short time)
 
 ## Progression
 ### Game Loop
@@ -112,8 +128,38 @@ A sci-fi twin-stick shooter bullet hell with roguelike progression. You play as 
 
 ## UI
 ### HUD
+	1. Show HP and shield
+	2. Show which round/wave player is on
+	3. Show current amount of fame (maybe only shows in-between rounds)
+	4. Show extra fame goals - how much damage to be under and target time to complete
+	5. Show which gun/weapon is equipped and ammo if applicable
+	6. Show reload time/bar during a reload
 ### Menus
+	1. In-game pause menu
+		1. Return to game, achievement progress, audio/video options, exit run
+		2. Show player stats, gun/weapon stats, items chosen, and current amount of fame
+	2. Results menu
+		1. No matter if player wins or loses show results
+		2. Total fame gained, which round they made it to, number of minutes the run was, number of enemies defeated, what acheivements they unlocked during the run, etc
+		3. Two options - Go back to title screen and immediatley start new run
+	3. Title screen
+		1. Start New
+		2. Continue (greyed out on first play)
+		3. Audio/video options
+		4. Achievement progress
+		5. Exit game (desktop build only)
+	4. Debouncing - Making sure there's a "isUITransitioning" bool when moving to/from/between UI menus
+### Transitions
+	1. Need a way to visually transition from title screen to a run, and a from a run to results screen, etc
+	2. Easiest way is no transition, just a jump cut, but that can be jarring
+	3. If we want something less jarring but still simple then a fade works - when a scene ends fade in a solid color texture over the screen, when a new scene starts then fade that texture back out (we can think of something more fancy if we want)
+	4. Debouncing - Make sure there's a "isSceneTransitioning" bool during that time so certain actions can't be taken until transitioning is done
 
 ## Save Data
 ### Player preferences
+	1. audio levels - master, music, sfx
+	2. fullscreen setting (desktop build only)
 ### Progression
+	1. progress of achievements
+	2. what content is locked/unlocked
+	3. Number of times beaten, best round beaten, lowest damage taken, etc
