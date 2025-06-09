@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa567225d02f784ea983aa433d1fcd0, type: 3}
+  m_Name: StatBlock-Ranged-MagicMissile
+  m_EditorClassIdentifier: 
+  startingStats:
+  - Stat: {fileID: 11400000, guid: 6a691bd56b7d81849aad908106207520, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 7c9f41c39d18a2c408a898f1eec0ecc2, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 671f589806f363040aea993f561a0f6f, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: bc92eb4382e21d441a1ce7df59541553, type: 2}
+    Value: 0.3
+  - Stat: {fileID: 11400000, guid: c32f6958da817bc418a3c2c2fb4f05a4, type: 2}
+    Value: 5
+  - Stat: {fileID: 11400000, guid: 6bb1cd6d92037db45ba6d97aa22d7739, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 2cb8a12405269be47ada0a3d5aea6668, type: 2}
+    Value: 0.5
+  - Stat: {fileID: 11400000, guid: c13d84f30f9eb9b4d9def37bd7d2c44a, type: 2}
+    Value: 6
+  - Stat: {fileID: 11400000, guid: b49fc2214f09e3e4e938d5b3c8af0f57, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: f5b417b250e6777419120ecd4bc41cc5, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 5c2a1d51863539649a0d922b6cfabb0e, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 4bc885d407d50b64c9c29d824e0aa519, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 4c4de3c79f0f5574ab54d3662f4fa5d3, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 829c51a85e0109547becd2ab2ddf022c, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 428dd494d8493d04d903394bf61d76ac, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 3fcb828f804d95f4faf7ee3828a78278, type: 2}
+    Value: 0
