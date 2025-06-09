@@ -175,6 +175,22 @@ public class ObjectTimers : MonoBehaviour
         return result;
     }
 
+    public bool IsTimerRunning(string tag)
+    {
+        bool result = false;
+
+        for (int i = 0; i < timers.Count; i++)
+        {
+            if (timers[i].tag == tag && timers[i].state == 1 && timers[i].curTime > 0.0f)
+            {
+                result = true;
+                break;
+            }
+        }
+
+        return result;
+    }
+
     public bool IsTimerComplete(string tag)
     {
         bool result = false;
