@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa567225d02f784ea983aa433d1fcd0, type: 3}
+  m_Name: StatBlock-MeleeWeapon-Sword
+  m_EditorClassIdentifier: 
+  startingStats:
+  - Stat: {fileID: 11400000, guid: 7cfce99baf6117d4d9179eaf9bb22bfa, type: 2}
+    Value: 2
+  - Stat: {fileID: 11400000, guid: 1989edf41d95c51448eed0cefc98d4de, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 2aa751df430c7ec4681edab4db972999, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 22c5295ccb8aabf43aee5763d7f9b3f7, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 7694f6ec24a29cb43974ea9f8a027d77, type: 2}
+    Value: 1
+  - Stat: {fileID: 11400000, guid: 8bf221ff435294c44bbb9a19c6aa91e2, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: d9f56994b9b92364882431934f33f09d, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 8e54fb3077d8853469ee5a4780207fbd, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: 070d643a81b69a549850a7c43f85e14d, type: 2}
+    Value: 0
+  - Stat: {fileID: 11400000, guid: d4a0bfd932beab940a43f7a68422d158, type: 2}
+    Value: 0
