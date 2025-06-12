@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventGeneric<T> : GameEvent
+public class GameEvent<T> : GameEvent
 {
     private List<GameEventListenerGeneric<T>> listeners = new List<GameEventListenerGeneric<T>>();
 
