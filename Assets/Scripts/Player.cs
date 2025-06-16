@@ -43,6 +43,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Heal(int health)
+    {
+        currentHealth = Mathf.Min ((int)inGameStats.GetStat("Player-MaxHP"), currentHealth + health);
+        onHealthUpdated.Invoke(currentHealth);
+    }
+
     void FixedUpdate()
     {
         if (movementVector != Vector2.zero)
