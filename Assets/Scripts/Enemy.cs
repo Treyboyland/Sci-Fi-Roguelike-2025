@@ -5,8 +5,13 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     StatBlock enemyStats;
 
+    [Tooltip("For general defeat of enemy stuff (e.g. death particles or noises)"]
     [SerializeField]
     GameEvent<Vector3> onEnemyDefeated;
+    
+    [Tooltip("Specifically for something that should happen on death for this type of enemy"]
+    [SerializeField]
+    GameEvent<Vector3> onThisEnemyDeath;
 
     public StatBlock Stats { get { return enemyStats; } }
 
@@ -23,6 +28,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth == 0)
         {
             onEnemyDefeated.Invoke(transform.position);
+            onThisEnemyDeath.Invoke(transform.postition);
             gameObject.SetActive(false);
         }
     }
