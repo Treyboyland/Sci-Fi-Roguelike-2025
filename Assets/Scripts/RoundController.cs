@@ -1,49 +1,49 @@
 using UnityEngine;
 
-public class RoundController : Monobehaviour
+public class RoundController : MonoBehaviour
 {
-[SerializeField]
-int currentRound;
+    [SerializeField]
+    int currentRound;
 
-[SerializeField]
-float secondsPerRound;
+    [SerializeField]
+    float secondsPerRound;
 
-[SerializeField]
-GameEvent<int> onRoundStarted;
+    [SerializeField]
+    GameEvent<int> onRoundStarted;
 
-[SerializeField]
-GameEvent onRoundComplete;
+    [SerializeField]
+    GameEvent onRoundComplete;
 
-float roundTime;
+    bool startRoundTime;
 
-bool startRoundTime;
+    float currentRoundTime;
 
-void Update()
-{
-if(startRoundTime)
-{
-currentRoundTime += Time.deltaTime;
-if(currentRoundTime >= secondsPerRound)
-{
-onRoundComplete.Invoke();
-StopRound();
-}
-}
-}
+    void Update()
+    {
+        if (startRoundTime)
+        {
+            currentRoundTime += Time.deltaTime;
+            if (currentRoundTime >= secondsPerRound)
+            {
+                onRoundComplete.Invoke();
+                StopRound();
+            }
+        }
+    }
 
-public void StartRound()
-{
-startRoundTime = true;
-}
+    public void StartRound()
+    {
+        startRoundTime = true;
+    }
 
-public void StopRound()
-{
-startRoundTime = false;
-}
+    public void StopRound()
+    {
+        startRoundTime = false;
+    }
 
-public void IncreaseRound()
-{
-roundTime =  0; 
-currentRound++;
-}
+    public void IncreaseRound()
+    {
+        currentRoundTime = 0;
+        currentRound++;
+    }
 }

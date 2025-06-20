@@ -1,12 +1,15 @@
 
 
-public class HealthPickup :Pickup
-{
-[SerializeField]
-int healthToHeal;
+using UnityEngine;
 
-public override void PerformPickupAction(Player p)
+public class HealthPickup : Pickup
 {
-player.Heal(healthToHeal);
-}
+    [SerializeField]
+    int healthToHeal;
+
+    public override void PerformPickupAction(Player p)
+    {
+        p.Heal(healthToHeal);
+        gameObject.SetActive(false);
+    }
 }

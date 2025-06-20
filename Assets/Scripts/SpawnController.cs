@@ -1,28 +1,32 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class SpawnController
 {
-int currentRound;
+    int currentRound;
 
-List<EnemySpawnData> enemies;
+    List<EnemySpawnData> enemies;
 
-[SerializeField]
-float secondsBetweenSpawnGroups;
+    [SerializeField]
+    float secondsBetweenSpawnGroups;
 
-[SerializeField]
-float secondsBetweenSpawns;
+    [SerializeField]
+    float secondsBetweenSpawns;
 
-float spawnTimer = 0;
+    float spawnTimer = 0;
 
-bool canSpawn;
+    bool canSpawn;
 
-static Player player;
+    static Player player;
 
 
-[Serializable]
-public struct EnemySpawnData
-{
-public Enemy Enemy;
-public Vector2Int RoundRestriction;
-}
+    [Serializable]
+    public struct EnemySpawnData
+    {
+        public Enemy Enemy;
+        public Vector2Int RoundRestriction;
+    }
 
 
 }
