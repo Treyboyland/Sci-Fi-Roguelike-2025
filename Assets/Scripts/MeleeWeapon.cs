@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : Weapon
 {
     [SerializeField]
     StatBlock stats;
 
     public string Owner { get; set; }
 
-    public void Fire(float angle)
+    public override void Aim(float angle)
+    {
+
+    }
+
+
+    public override void Fire()
     {
 
     }
