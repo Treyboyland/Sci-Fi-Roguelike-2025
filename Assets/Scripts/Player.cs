@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Rigidbody2D body;
 
+    [SerializeField]
+    Weapon currentWeapon;
+
     StatBlock inGameStats;
     public StatBlock InGameStats { get => inGameStats; set { inGameStats = value.Duplicate(); } }
     int currentHealth;
@@ -45,7 +48,7 @@ public class Player : MonoBehaviour
 
     public void Heal(int health)
     {
-        currentHealth = Mathf.Min ((int)inGameStats.GetStat("Player-MaxHP"), currentHealth + health);
+        currentHealth = Mathf.Min((int)inGameStats.GetStat("Player-MaxHP"), currentHealth + health);
         onHealthUpdated.Invoke(currentHealth);
     }
 
@@ -53,7 +56,7 @@ public class Player : MonoBehaviour
     {
         if (movementVector != Vector2.zero)
         {
-            body.AddForce(movementVector * inGameStats.GetStat("Player-MaxMoveSpeed"));
+            body.MovePosition((Vector2)transform.position + (movementVector * (inGameStats.GetStat("Player-MaxMoveSpeed") * Time.fixedDeltaTime)));
         }
     }
 

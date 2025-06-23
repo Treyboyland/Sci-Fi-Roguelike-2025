@@ -8,10 +8,13 @@ public class PlayerControl : MonoBehaviour
 
     //TODO: Might need to change this for keyboard vs controller[SerializeField]GameEvent<Vector2> onAim;
     [SerializeField]
-    GameEvent<Vector2> onAim;
+    GameEvent<MovementVectorAndControl> onAim;
 
     [SerializeField]
     GameEvent<bool> onFire;
+
+    [SerializeField]
+    PlayerInput input;
 
     public void ProcessMove(InputAction.CallbackContext context)
     {
@@ -19,7 +22,8 @@ public class PlayerControl : MonoBehaviour
     }
     public void ProcessAim(InputAction.CallbackContext context)
     {
-        onAim.Invoke(context.ReadValue<Vector2>());
+        bool usingKeyboard = input != null ? input.currentControlScheme == "Keyboard&Mouse" : true;
+        onAim.Invoke(new MovementVectorAndControl() { Vector = context.ReadValue<Vector2>(), IsController = !usingKeyboard });
     }
     public void ProcessFire(InputAction.CallbackContext context)
     {

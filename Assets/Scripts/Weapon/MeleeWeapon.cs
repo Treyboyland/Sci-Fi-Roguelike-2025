@@ -1,17 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class MeleeWeapon : Weapon
 {
     [SerializeField]
-    StatBlock stats;
+    Collider2D weaponCollider;
 
-    public string Owner { get; set; }
-
-    public override void Aim(float angle)
+    IEnumerator Attack()
     {
+        var startPos = transform.position;
+        float thrustTime;
+        float stayTime;
+        float distance = 0;
+        var endpos = transform.forward * distance;
+
+        yield return null;
 
     }
-
 
     public override void Fire()
     {
@@ -30,5 +35,10 @@ public class MeleeWeapon : Weapon
         {
             player.Damage((int)stats.GetStat("Enemy-Damage"));
         }
+    }
+
+    public override void Fire(bool shouldFire)
+    {
+        throw new System.NotImplementedException();
     }
 }

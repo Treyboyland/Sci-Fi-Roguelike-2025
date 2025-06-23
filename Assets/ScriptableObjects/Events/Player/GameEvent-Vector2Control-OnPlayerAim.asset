@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6af8303def952c74184754e130f0eedd, type: 3}
-  m_Name: GameEvent-Vector2-OnPlayerAim
+  m_Script: {fileID: 11500000, guid: 1bc1e6d81c114be40880fd6c3920537a, type: 3}
+  m_Name: GameEvent-Vector2Control-OnPlayerAim
   m_EditorClassIdentifier: 
-  Value: {x: 0, y: 0}
