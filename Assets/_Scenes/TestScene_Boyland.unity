@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: a9f292753a7641442bfe477fa939c389, type: 2}
+  weaponCollider: {fileID: 0}
 --- !u!4 &260097569
 Transform:
   m_ObjectHideFlags: 0
