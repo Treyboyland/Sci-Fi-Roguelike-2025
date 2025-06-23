@@ -11,6 +11,17 @@ public class RangedWeapon : Weapon
 
     float reloadTime;
 
+void Update()
+{
+elapsed += !isReloading ? Time.deltaTime : 0;
+reloadTimer = isReloading ? Time.deltaTime : 0;
+if(shouldFire && elapsed >= secondsBetweenShots && !isReloading && ammoCount != 0)
+{
+elapsed = 0;
+StartCoroutine(Attack());
+}
+}
+
     public override void Fire()
     {
 
