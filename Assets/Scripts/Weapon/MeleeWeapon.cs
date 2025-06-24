@@ -6,55 +6,62 @@ public class MeleeWeapon : Weapon
     [SerializeField]
     Collider2D weaponCollider;
 
+    bool isFiring;
+    float elapsed;
+
+    float thrustTime;
+    float stayTime;
+    float distance;
+
+    float secondsBetweenShots;
+
     IEnumerator Attack()
     {
         var startPos = transform.localPosition;
-        float thrustTime;
-        float stayTime;
-        float distance = 0;
-        var endpos = transform.forward * distance;
-isFiring = true;
 
-float elapsedThrust = 0;
-//Weapon will stay in space, and then come back
-while(elapsedThrust < thrustTime)
-{
-elapsedThrust += Time.deltaTime;
-var newPos = Vector3.Lerp(startPos, startPos + endPos, elapsedThrust / thrustTime);
-transform.localPosition = newPos;
-yield return null; 
-}
+        var endPos = transform.forward * distance;
+        isFiring = true;
 
-yield return new WaitForSeconds(stayTime);
-elapsedThrust = 0;
-while(elapsedThrust < thrustTime)
-{
-elapsedThrust += Time.deltaTime;
-var newPos = Vector3.Lerp(startPos + endPos, startPos, elapsedThrust / thrustTime);
-transform.localPosition = newPos;
-yield return null; 
-}
+        float elapsedThrust = 0;
+        //Weapon will stay in space, and then come back
+        while (elapsedThrust < thrustTime)
+        {
+            elapsedThrust += Time.deltaTime;
+            var newPos = Vector3.Lerp(startPos, startPos + endPos, elapsedThrust / thrustTime);
+            transform.localPosition = newPos;
+            yield return null;
+        }
 
-isFiring = false;
+        yield return new WaitForSeconds(stayTime);
+        elapsedThrust = 0;
+        while (elapsedThrust < thrustTime)
+        {
+            elapsedThrust += Time.deltaTime;
+            var newPos = Vector3.Lerp(startPos + endPos, startPos, elapsedThrust / thrustTime);
+            transform.localPosition = newPos;
+            yield return null;
+        }
+
+        isFiring = false;
 
     }
 
-void Update()
-{
-elapsed += !iFiring ? Time.deltaTime : 0;
-if(shouldFire && elapsed >= secondsBetweenShots && !isFiring)
-{
-elapsed = 0;
-StartCoroutine(Attack());
-}
-}
+    void Update()
+    {
+        elapsed += !isFiring ? Time.deltaTime : 0;
+        if (shouldFire && elapsed >= secondsBetweenShots && !isFiring)
+        {
+            elapsed = 0;
+            StartCoroutine(Attack());
+        }
+    }
 
     public override void Fire()
     {
-         if(!isFiring)
-         {
-             StartCoroutine(Attack());
-         }
+        if (!isFiring)
+        {
+            StartCoroutine(Attack());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -73,6 +80,6 @@ StartCoroutine(Attack());
 
     public override void Fire(bool shouldFire)
     {
-        throw new System.NotImplementedException();
+        this.shouldFire = shouldFire;
     }
 }

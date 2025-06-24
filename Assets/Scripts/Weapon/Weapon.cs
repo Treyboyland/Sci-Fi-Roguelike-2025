@@ -10,15 +10,6 @@ public abstract class Weapon : MonoBehaviour
 
     protected bool shouldFire;
 
-
-    void OnEnable()
-    {
-        if(gameObject.activeInHierarchy)
-        {
-            StartCoroutine(
-        }
-    }
-
     public virtual void Aim(float angle)
     {
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -26,6 +17,4 @@ public abstract class Weapon : MonoBehaviour
     public abstract void Fire();
 
     public abstract void Fire(bool shouldFire);
-
-    protected abstract IEnumerator FireRoutine();
 }

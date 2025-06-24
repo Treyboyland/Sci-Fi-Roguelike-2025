@@ -6,21 +6,32 @@ public class RangedWeapon : Weapon
 
 
     bool isReloading;
+    bool isFiring;
 
     float elapsed = 0;
+    float reloadElapsed = 0;
 
     float reloadTime;
+    int ammoCount;
+    int maxAmmoCount;
 
-void Update()
-{
-elapsed += !isReloading ? Time.deltaTime : 0;
-reloadTimer = isReloading ? Time.deltaTime : 0;
-if(shouldFire && elapsed >= secondsBetweenShots && !isReloading && ammoCount != 0)
-{
-elapsed = 0;
-StartCoroutine(Attack());
-}
-}
+    float secondsBetweenShots;
+
+    void Update()
+    {
+        elapsed += !isReloading ? Time.deltaTime : 0;
+        reloadElapsed += isReloading ? Time.deltaTime : 0;
+        if (shouldFire && elapsed >= secondsBetweenShots && !isFiring && !isReloading && ammoCount != 0)
+        {
+            elapsed = 0;
+            Fire();
+        }
+        if (isReloading && reloadElapsed >= reloadTime)
+        {
+            isReloading = false;
+            ammoCount = maxAmmoCount;
+        }
+    }
 
     public override void Fire()
     {
@@ -29,6 +40,6 @@ StartCoroutine(Attack());
 
     public override void Fire(bool shouldFire)
     {
-        throw new System.NotImplementedException();
+        this.shouldFire = shouldFire;
     }
 }
