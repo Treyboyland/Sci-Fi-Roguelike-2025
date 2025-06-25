@@ -22,9 +22,16 @@ public class Player : MonoBehaviour
 
     StatBlock inGameStats;
     public StatBlock InGameStats { get => inGameStats; set { inGameStats = value.Duplicate(); } }
+
+    public Weapon CurrentWeapon { get => currentWeapon; set => currentWeapon = value; }
+
     int currentHealth;
 
     Vector2 movementVector;
+
+    int fame;
+
+
     void Start()
     {
         inGameStats = startingStats.Duplicate();
@@ -63,5 +70,20 @@ public class Player : MonoBehaviour
     public void MovePlayer(Vector2 movementVector)
     {
         this.movementVector = movementVector;
+    }
+
+    public void AddFame(int fameToAdd)
+    {
+        fame += fameToAdd;
+    }
+
+    public void RemoveFame(int fameToRemove)
+    {
+        fame -= fameToRemove;
+    }
+
+    public int GetFame()
+    {
+        return fame;
     }
 }
