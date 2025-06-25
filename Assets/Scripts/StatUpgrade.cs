@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatUpgrade", menuName = "Scriptable Objects/StatUpgrade")]
+[CreateAssetMenu(fileName = "StatUpgrade-", menuName = "Upgrades/Stat Upgrade")]
 public class StatUpgrade : PlayerUpgrade
 {
     [SerializeField]
